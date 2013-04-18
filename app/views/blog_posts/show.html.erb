@@ -1,0 +1,8 @@
+<% provide(:title, @blog_post.title) %>
+<h1><%= @blog_post.title %></h1>
+<p>name: <%= @blog_post.user.name %> <br>	email: <%=	@blog_post.user.email %></p>
+
+<div class="span8">
+	<h3>Content:</h3> 
+	<p><%= @blog_post.content %></p>
+</div>

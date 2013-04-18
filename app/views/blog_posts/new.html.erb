@@ -1,0 +1,22 @@
+<% provide(:title, 'New Blog Post') %>
+<h1>New Blog Post</h1>
+<p>This is the blog post creation page.</p>
+<div class = "row">
+	<div class="span6 offset3">
+	  <%= form_for(@blog_post) do |f| %>
+
+	      <%= f.label :user_id %>
+	      <%= f.text_field :user_id %>
+
+	      <%= f.label :title %>
+	      <%= f.text_field :title %>
+
+	      <%= f.label :content %>
+	      <%= f.text_field :content %>
+
+	      <br>
+	      <%= f.submit "Create blog post", class: "btn btn-large btn-primary" %>
+      
+      <% end %>
+	</div>
+</div>

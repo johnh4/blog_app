@@ -1,5 +1,6 @@
 BlogApp::Application.routes.draw do
-  get "users/new"
+  resources :users
+  resources :blog_posts
 
   root to: "static_pages#home"
 
@@ -8,10 +9,9 @@ BlogApp::Application.routes.draw do
   match '/home', to: "static_pages#home"
   match '/about', to: "static_pages#about"
 
-  get "static_pages/home"
-  get "static_pages/about"
+  match '/blogposts', to: "blog_posts#index"
 
-  get "static_pages/help"
+  match '/post', to: "blog_posts#new"
 
 
   # The priority is based upon order of creation:
