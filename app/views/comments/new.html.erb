@@ -1,0 +1,21 @@
+<% provide(:title, 'New Comment') %>
+<h1>New Comment</h1>
+<p>This is the comment creation page.</p>
+<div class = "row">
+	<div class="span6 offset3">
+	  <%= form_for([@blog_post, @comment]) do |f| %>
+
+	      <%= f.label :user_id %>
+	      <%= f.text_field :user_id %>
+
+	      <%= f.label :content %>
+	      <%= f.text_field :content %>
+
+	      <%= f.hidden_field :blog_post_id %>
+
+	      <br>
+	      <%= f.submit "Create comment", class: "btn btn-large btn-primary" %>
+      
+      <% end %>
+	</div>
+</div>

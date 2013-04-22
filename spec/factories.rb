@@ -9,4 +9,12 @@ FactoryGirl.define do
   	title   "Post Title"
   	user
   end
+
+  factory :comment do
+  	content "Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauri."
+  	user
+  	blog_post
+  end
+
+
 end

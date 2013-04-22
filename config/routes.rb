@@ -1,6 +1,8 @@
 BlogApp::Application.routes.draw do
   resources :users
-  resources :blog_posts
+  resources :blog_posts do
+    resources :comments
+  end
 
   root to: "static_pages#home"
 
@@ -12,6 +14,12 @@ BlogApp::Application.routes.draw do
   match '/blogposts', to: "blog_posts#index"
 
   match '/post', to: "blog_posts#new"
+
+  match '/blog_posts/:blog_post_id/comments/new', to: "comments#new"
+
+  match '/blog_posts/:blog_post_id/comments/:id', to: "comments#show"
+
+  #match '/blog_posts/:blog_post_id/comments', to: "comments#index"
 
 
   # The priority is based upon order of creation:
