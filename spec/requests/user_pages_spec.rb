@@ -44,10 +44,25 @@ describe "User pages" do
       before do
         fill_in "Name",         with: "Example User"
         fill_in "Email",        with: "user@example.com"
+        fill_in "Password",     with: "password"
+        fill_in "Password confirmation", with: "password"
       end
 
       it "should create a user" do
         expect {click_button submit }.to change(User, :count).by(1)
+      end
+
+      describe "after saving the user" do
+        before { click_button submit }
+        it { should have_link('Sign Out') }
+      end
+
+      describe "followed by signing out" do
+        before do
+          click_button submit
+          click_link 'Sign Out'
+        end 
+        it { should have_link 'Sign In' }
       end
     end
   end
