@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424224650) do
+ActiveRecord::Schema.define(:version => 20130428210312) do
 
   create_table "blog_posts", :force => true do |t|
     t.text     "content"
@@ -33,13 +33,39 @@ ActiveRecord::Schema.define(:version => 20130424224650) do
 
   add_index "comments", ["blog_post_id", "created_at"], :name => "index_comments_on_blog_post_id_and_created_at"
 
+  create_table "forums", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "topic_id"
+    t.integer  "user_id"
+  end
+
+  create_table "topics", :force => true do |t|
+    t.string   "title"
+    t.integer  "last_poster_id"
+    t.datetime "last_post_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "forum_id"
+    t.integer  "user_id"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.integer  "permission_level"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"

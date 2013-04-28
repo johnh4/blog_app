@@ -18,5 +18,21 @@ FactoryGirl.define do
   	blog_post
   end
 
+  factory :forum do
+    name        "forum test name"
+    description "forum test description"
+  end
 
+  factory :topic do
+    title             "topic test title"
+    last_post_at      Time.now
+    user
+    forum
+  end
+
+  factory :post do
+    content     "post test content"
+    user
+    topic
+  end
 end

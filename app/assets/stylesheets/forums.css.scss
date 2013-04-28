@@ -1,0 +1,23 @@
+// Place all the styles related to the Forums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table tr th {
+	background:#eaeaea;
+	color:#444; 
+	padding:0; 
+	border:#ccc solid 1px;
+}  
+table tr td {
+	background: #fafafa;
+	border:1px #ccc solid;
+	padding:5px;
+}  
+table tr td.right {
+	background: #fafafa;
+}  
+table tr td h4 {
+	margin:0; 
+	padding:0; 
+	font-weight:normal;
+}

@@ -1,0 +1,13 @@
+<%= provide(:title, 'Edit Post') %>
+
+<h2>Edit Post</h2>
+
+<%= form_for([@forum, @topic, @post]) do |f| %>
+	
+	<%= f.label :content %>
+	<%= f.text_field :content %>
+
+	<br>
+	<%= f.submit "Edit", class: "btn btn-large btn-primary" %>
+
+<% end %>

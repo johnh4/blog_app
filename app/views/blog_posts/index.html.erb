@@ -13,7 +13,7 @@
 			<p><%= blog_post.content %></p>
 		</div>
 		<p>Posted on <%= blog_post.created_at.to_date.strftime("%B %d, %Y") %>.</p>
-		<p><%= blog_post.comments.count %> <%= link_to 'Comments.',blog_post_comments_path(blog_post) %>
+		<p><%= link_to h(blog_post.comments.count) + ' Comments.',blog_post_comments_path(blog_post) %>
 			<br>
 			<%= link_to 'Make a Comment.', new_blog_post_comment_path(blog_post) %></p>
 		<section>

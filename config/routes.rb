@@ -4,6 +4,11 @@ BlogApp::Application.routes.draw do
     resources :comments
   end
   resources :sessions, only: [:new, :create, :destroy]
+  resources :forums do
+    resources :topics do
+      resources :posts
+    end
+  end
 
   root to: "static_pages#home"
 
@@ -24,6 +29,9 @@ BlogApp::Application.routes.draw do
   match '/blog_posts/:blog_post_id/comments/:id', to: "comments#show"
 
   #match '/blog_posts/:blog_post_id/comments', to: "comments#index"
+
+  match '/forums/:forum_id/topics/new', to: 'topics#new'
+  match '/forums/:forum_id/topics/:id', to: 'topics#show'
 
 
   # The priority is based upon order of creation:

@@ -17,7 +17,12 @@ namespace :db do
     users = User.all(limit: 5)
     4.times do
       content = Faker::Lorem.sentence(5)
-      users.each { |user| user.blog_posts.create!(content: content) }
+      title = Faker::Lorem.sentence(1)
+      users.each { |user| user.blog_posts.create!(content: content, title: title) }
     end
+    Forum.create!(name: "Test Forum 1",
+                  description: "The first test forum.")
+    Forum.create!(name: "Test Forum 2",
+                  description: "The second test forum.")
   end
 end

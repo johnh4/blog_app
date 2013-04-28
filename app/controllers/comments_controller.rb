@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
 	def new
 		@blog_post = BlogPost.find(params[:blog_post_id])
-		@comment = Comment.new(blog_post_id: params[:blog_post_id])
+		@comment = Comment.new(blog_post_id: params[:blog_post_id], user_id: current_user.id)
 		#@comment = @blog_post.comments.build(blog_post_id: @blog_post.id)
 		#@blog_post = BlogPost.find(@comment.blog_post_id)
 	end

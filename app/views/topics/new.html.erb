@@ -1,0 +1,20 @@
+<%= provide(:title,'New Topic') %>
+<h1>New Topic</h1>
+<p>This is the topic creation page.</p>
+<div class = "row">
+	<div class="span6 offset3">
+	  <%= form_for([@forum, @topic]) do |f| %>
+
+		  <%= f.hidden_field :forum_id %>
+
+	      <%= f.label :title %>
+	      <%= f.text_field :title %>
+	      
+	      <br />
+	      <textarea name="post[content]" cols="80" rows="20"><%= @post.content %></textarea>
+	      <br>
+
+	      <%= f.submit "Create topic", class: "btn btn-large btn-primary" %>      
+      <% end %>
+	</div>
+</div>

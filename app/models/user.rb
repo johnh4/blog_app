@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :user_id, :password, :password_confirmation
   has_many :blog_posts
   has_many :comments
+  has_many :posts
+  has_many :topics
   has_secure_password
 
   before_save { email.downcase! }

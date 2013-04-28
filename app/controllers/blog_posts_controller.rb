@@ -1,7 +1,7 @@
 class BlogPostsController < ApplicationController
 
 	def new
-		@blog_post = BlogPost.new
+		@blog_post = BlogPost.new(user_id: current_user.id)
 	end
 
 	def create

@@ -12,6 +12,8 @@
 
 	<%= yield %>
 
+  <%= debug(params) if Rails.env.development? %>
+
 </body>
 <script>
 jQuery(document).ready(function($){
