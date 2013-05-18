@@ -1,7 +1,18 @@
 module ApplicationHelper
 
+	def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Please sign in."
+      end
+  	end
+
+  	def store_location
+    	session[:return_to] = request.url
+  	end
+
 	def admin?
-		if current_user.permission_level == 1 || current_user.id == 1
+		if signed_in? && (current_user.permission_level == 1 || current_user.id == 1)
 			return true
 		else
 			return false

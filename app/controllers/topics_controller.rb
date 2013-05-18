@@ -1,5 +1,8 @@
 class TopicsController < ApplicationController
 
+	before_filter :signed_in_user, :except => [:index, :show]
+	before_filter :admin_required, :only => :destroy
+
 	def new
 		@topic = Topic.new(forum_id: params[:forum_id])
 		#@topic.user = current_user

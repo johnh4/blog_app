@@ -1,21 +1,35 @@
 <% provide(:title, 'Blog Posts Index') %>
-<h1>Blog App</h1>
-<p>This is the index page for Blog App</p>
-<p>Find me in app/views/blog_posts/index.html.erb</p>
-
+<div class="gradient_logo">
+	<h1><span class="logo_1">Blog</span><span class="logo_2">App</span></h1>
+</div>
 <% @users.each do |user| %>
 	<% user.blog_posts.each do |blog_post| %>
-		<h3>title: <%= blog_post.title %></h3>
-		<p>name: <%= blog_post.user.name %><br>email: <%=	blog_post.user.email %>
-			<br><%= link_to 'Profile', user_path(user) %></p>
-		<div>
-			<p>Content:</p> 
-			<p><%= blog_post.content %></p>
-		</div>
-		<p>Posted on <%= blog_post.created_at.to_date.strftime("%B %d, %Y") %>.</p>
-		<p><%= link_to h(blog_post.comments.count) + ' Comments.',blog_post_comments_path(blog_post) %>
+		<div class="post_rect">
+			<div class="title_rect">
+				
+				<%= image_tag("mario2.gif", alt: "mario", class: "mario") %>
+				<h3 id="title"><%= link_to blog_post.title,blog_post_comments_path(blog_post) %></h3>
+			</div>
+			<span class= "left">
+				<p>By <%= link_to h(blog_post.user.name), user_path(user) %><br>
+				Posted on <%= blog_post.created_at.to_date.strftime("%B %d, %Y") %></p>
+			</span>
+			<span class= "right">
+				<p><%= link_to h(blog_post.comments.count) + ' Comments',blog_post_comments_path(blog_post) %>
+					<br>
+					<%= link_to 'Make One', new_blog_post_comment_path(blog_post) %>
+				</p>
+			</span>
+			
+			<div id="content">
+				<br><br><br>
+				<div class="content_rect">
+					<p>Content: <%= blog_post.content %></p>
+				</div>
+			</div>
 			<br>
-			<%= link_to 'Make a Comment.', new_blog_post_comment_path(blog_post) %></p>
+		</div>
+
 		<section>
 		</section>
 	<% end %>

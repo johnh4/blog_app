@@ -1,0 +1,100 @@
+// Place all the styles related to the BlogPosts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#title {
+	color: #145596;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.logo_1 {
+	color: #145596;
+	font-variant: small-caps;
+}
+
+.logo_2 {
+	color: #1CA2E6;
+}
+
+span.left {
+	float: left;
+	font-variant: small-caps;
+}
+span.right {
+	float: right;
+	font-variant: small-caps;
+}
+
+span.right a:link, a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+span.right a:hover, span.left a:hover{
+	color: #1CA2E6;
+}
+
+h3#title {
+	display:inline;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 5px 5px 5px #888;
+	width: auto;
+	//background: url(gradient-background4.gif);
+	background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background4.gif);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+h3#title a, a:link, a:visited {
+	//text-decoration: none;
+	color: #145596;
+}
+div.title_rect {
+	text-align: center;
+}
+
+@keyframes mario {
+	0% {left: -40%; top: 25%;opacity: 1;}
+	20% {left: -10%; top: -25%;opacity: 1;}
+	40% {left: 20%; top: 25%;opacity: 1;}
+	60% {left: 50%; top: -25%;opacity: 1;}
+	80% {left: 70%; top: 25%;opacity: 1;}
+	100% {left: 90%; top: -25%;opacity: 1;}
+}
+
+.mario {
+	opacity: 0;
+}
+div.title_rect:hover .mario{
+	position: relative;
+	animation: mario 2s linear;
+	width:50px;
+	height: 50px;
+}
+
+div.content_rect {
+	box-shadow: 5px 5px 5px #888;
+}
+
+div.post_rect {
+	//box-shadow: 10px 10px 5px #888;
+	//background-color: #aaa;
+	//background: url(gradient-post2.jpg);
+	//background-size: 100% 100%;
+	//background: linear-gradient(to bottom, transparent 30%,  white 30%, #d2ebf9 40%, white);
+}
+
+div.gradient_logo {
+	//background: url(gradient-background.jpg);
+}
+
+body {
+	//background: url(gradient-background3.jpg);
+	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background3.jpg);
+	background-size: 100% 150px;
+	background-repeat: no-repeat;
+}

@@ -1,5 +1,7 @@
 class BlogPostsController < ApplicationController
 
+	before_filter :signed_in_user, except: [:show, :index]
+
 	def new
 		@blog_post = BlogPost.new(user_id: current_user.id)
 	end

@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+	before_filter :signed_in_user, only: [:new,:create]
+
 	def new
 		@blog_post = BlogPost.find(params[:blog_post_id])
 		@comment = Comment.new(blog_post_id: params[:blog_post_id], user_id: current_user.id)

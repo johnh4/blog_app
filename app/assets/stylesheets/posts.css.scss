@@ -4,19 +4,116 @@
 .post {
 	width:100%; 
 	display:table;
+	margin-bottom: 10px;
 }  
 .post span {
 	padding:5px; 
-	border:3px solid #eee; 
+	//border:3px solid #eee; 
 	margin:0;
 }  
-.post span.left {
+.post span.byline_left {
 	width:150px; 
-	background:#eee; 
-	border:3px solid #eee; 
+	//background:#eee; 
+	background: url(gradient-background4.gif);
+	opacity: 1;
+	//border:3px solid #ddd; 
 	display:table-cell;
+	box-shadow: 0px .5px 10px #888;
+	z-index: -1;
 }  
-.post span.right { 
-	border:3px solid #eee; 
+.post span.byline_left a:link, a:visited {
+	display: block;
+	//padding: 4px;
+	text-align: center;
+	color: #111;
+	//background-color: #0000aa;
+	//font-weight: bold;
+	text-decoration: none;
+}
+
+.post a {
+	//background: url(cloud4.jpg);
+	//background-size: 100% 100%;
+}
+@keyframes plane {
+	0% {left: -20%; top:80%;opacity:.2}
+	10% {left: 0%; top:70%;opacity:.5}
+	80% {left: 50%; top:20%;opacity:.8}
+	100% {left: 90%; top:0%;opacity:0}
+}
+@keyframes post_back {
+	0% {background: white;}
+	33% {background: #d2ebf9;}
+	66% {background: #d2ebf9;}
+	100% {background: white;}
+}
+.post span.comments_right:hover {
+	//animation: post_back 1s;
+	//animation: plane 1s;
+	background: url(gradient-background4.gif);
+	background-size: 100%;
+	//float: left;
+	//transition: background url(gradient-background4.gif) 5s;
+}
+
+#airplane{
+	//float: left;
+	//z-index:-2;
+	opacity: 0;
+	//animation: plane 2s;
+	position: fixed;
+	//position: relative;
+	//z-index: 1;
+}
+
+span.comments_right:hover img#airplane {
+	position: relative;
+	animation: plane 1s linear;
+	//width: 300px;
+	//display: block;
+}
+
+.post a:hover {
+	background-color: #fff;
+	font-weight: bold;
+	background: url(cloud.png);
+	background-size: 100% 100%;
+}
+.post span.comments_right { 
+	transition: background 1s ease-in-out;
+	//border:3px solid #eee; 
 	display:table-cell;
+	//background-color: yellow;
+	box-shadow: 5px .5px 10px #888;
+	padding-left: 10px;
+	z-index: 0;
+	//position: relative;
+	//height: 100%;
+	//width: 100%;
+	//left: 190px;
+	
 }  
+
+body {
+	background-color: #fff;
+	margin-left: 1%;
+	margin-right: 1%;
+	font-family: "Trebuchet MS"
+}
+
+#forum_name {
+	display: inline;
+	//text-transform: uppercase;
+	font-variant: small-caps;
+	color: #145596;
+}
+
+#topic_title {
+	display: inline;
+	font-weight: normal;
+	color: #1CA2E6;
+}
+
+#forum_and_topic {
+	margin-bottom: 20px;
+}

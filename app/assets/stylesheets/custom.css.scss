@@ -4,6 +4,10 @@
 	color: #fff;
 }
 
+.nav li {
+  color: #000;
+}
+
 #logo:hover {
   color: #000;
   text-decoration: none;
@@ -30,4 +34,10 @@ $grayMediumLight: #eaeaea;
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+.navbar-inner, .navbar-inner container, .navbar, #nav-main {
+    opacity: 0.9; /* opacity [0-1] */
+    -moz-opacity: 0.9; /* opacity [0-1] */
+    -webkit-opacity: 0.9; /* opacity [0-1] */
 }

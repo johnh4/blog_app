@@ -1,18 +1,33 @@
 <%= provide(:title, @topic.title) %>
-
-<h3><%= @topic.title %></h3>
+<div id="forum_and_topic">
+	<h1 id="forum_name"><%= @topic.forum.name %></h1>
+	<h3 id="topic_title"><%= @topic.title %></h3>
+</div>
 <% for post in @topic.posts %>
 	<div class="post">
-		<span class="left"><%= post.topic.user.name %><br />
-			<%= link_to "Edit", edit_forum_topic_post_path(@topic.forum, @topic, post) %>
-			<br /><%= link_to "Delete", [@topic.forum, @topic, post], confirm: 'Are you sure?', method: :delete %>
+		<span class="byline_left"><%= link_to post.topic.user.name, user_path(post.topic.user) %><br />
+			<% if signed_in? %>
+				<% if admin_or_owner?(post.topic.user.id) %>
+					<%= link_to "Edit", edit_forum_topic_post_path(@topic.forum, @topic, post) %>
+					<br />
+					<%= link_to "Delete", [@topic.forum, @topic, post], confirm: 'Are you sure?', method: :delete %>
+				<% end %>
+			<% end %>
 		</span>
-		<span class="right"><%= post.content %></span>
+		<span class="comments_right">
+			<%= post.content %>
+			<%= image_tag("plane_trans.png", alt: "plane", id: "airplane", height: 50, width: 100) %>
+		</span>
 	</div>
 <% end %>
 
-<p>
-	<%= link_to "Reply", new_forum_topic_post_path(@topic.forum,@topic) %> |
-	<%= link_to "Destroy Topic", [@topic.forum, @topic], confirm: 'Are you sure?', method: :delete %> |
-	<%= link_to "View All", forum_path(@topic.forum) %>
+<p>	<% if signed_in? %>
+		<%= link_to "Reply", new_forum_topic_post_path(@topic.forum,@topic) %> |
+	<% else %>
+		<%= link_to "Sign Up", signup_path %> or <%= link_to "Sign In", signin_path %> to post a reply. <br>
+	<% end %>
+	<% if admin? %>
+		<%= link_to "Destroy Topic", [@topic.forum, @topic], confirm: 'Are you sure?', method: :delete %> |
+	<% end %>
+	<%= link_to "Back to " + h(@topic.forum.name), forum_path(@topic.forum) %>
 </p>
