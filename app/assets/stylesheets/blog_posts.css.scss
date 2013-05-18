@@ -65,6 +65,14 @@ div.title_rect {
 	80% {left: 70%; top: 25%;opacity: 1;}
 	100% {left: 90%; top: -25%;opacity: 1;}
 }
+@-webkit-keyframes mario {
+	0% {left: -40%; top: 15px;opacity: 1;}
+	20% {left: -10%; top: -15px;opacity: 1;}
+	40% {left: 20%; top: 15px;opacity: 1;}
+	60% {left: 50%; top: -15px;opacity: 1;}
+	80% {left: 70%; top: 15px;opacity: 1;}
+	100% {left: 90%; top: -15px;opacity: 1;}
+}
 
 .mario {
 	opacity: 0;
@@ -72,6 +80,7 @@ div.title_rect {
 div.title_rect:hover .mario{
 	position: relative;
 	animation: mario 2s linear;
+	-webkit-animation: mario 2s linear;
 	width:50px;
 	height: 50px;
 }

@@ -41,6 +41,33 @@
 	80% {left: 50%; top:20%;opacity:.8}
 	100% {left: 90%; top:0%;opacity:0}
 }
+@-webkit-keyframes plane {
+	0% {
+		//top: 80%; 
+		//left: -20%;
+		-webkit-transform: translate(-20%,80%); 
+		opacity:.2
+	}
+	10% {
+		//top: 70%; 
+		//left: 0%;
+		-webkit-transform: translate(0%,70%);
+		opacity:.5
+	}
+	80% {
+		//top: 20%; 
+		//left: 50%;
+		-webkit-transform: translate(50%,20%); 
+		opacity:.8
+	}
+	100% {
+		//top: 0%; 
+		//left: 90%; 
+		-webkit-transform: translate(90%,0%);
+		opacity:0
+	}
+}
+
 @keyframes post_back {
 	0% {background: white;}
 	33% {background: #d2ebf9;}
@@ -68,6 +95,7 @@
 
 span.comments_right:hover img#airplane {
 	position: relative;
+	-webkit-animation: plane 1s linear;
 	animation: plane 1s linear;
 	//width: 300px;
 	//display: block;
@@ -80,7 +108,7 @@ span.comments_right:hover img#airplane {
 	background-size: 100% 100%;
 }
 .post span.comments_right { 
-	transition: background 1s ease-in-out;
+	//transition: background 1s ease-in-out;
 	//border:3px solid #eee; 
 	display:table-cell;
 	//background-color: yellow;
