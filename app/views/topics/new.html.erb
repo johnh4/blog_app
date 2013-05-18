@@ -1,8 +1,8 @@
 <%= provide(:title,'New Topic') %>
 <h1>New Topic</h1>
 <p>This is the topic creation page.</p>
-<div class = "row">
-	<div class="span6 offset3">
+<div class = "filler">
+	<div class="form">
 	  <%= form_for([@forum, @topic]) do |f| %>
 
 		  <%= f.hidden_field :forum_id %>
@@ -11,9 +11,12 @@
 	      <%= f.text_field :title %>
 	      
 	      <br />
-	      <textarea name="post[content]" cols="80" rows="20"><%= @post.content %></textarea>
-	      <br>
 
+	      <div class="larger_input">
+		      <textarea name="post[content]" cols="80" rows="20"><%= @post.content %></textarea> 
+	      </div>    
+
+	      <br>
 	      <%= f.submit "Create topic", class: "btn btn-large btn-primary" %>      
       <% end %>
 	</div>

@@ -1,8 +1,8 @@
 <% provide(:title, 'New Blog Post') %>
 <h1>New Blog Post</h1>
 <p>This is the blog post creation page.</p>
-<div class = "row">
-	<div class="span6 offset3">
+<div class = "filler">
+	<div class="blog_post_form form">
 	  <%= form_for(@blog_post) do |f| %>
 
 		  <%= f.hidden_field :user_id %>
@@ -10,8 +10,10 @@
 	      <%= f.label :title %>
 	      <%= f.text_field :title %>
 
-	      <%= f.label :content %>
-	      <%= f.text_field :content %>
+	      <div class = "larger_input">
+		      <%= f.label :content %>
+		      <%= f.text_area :content %>
+		  </div>
 
 	      <br>
 	      <%= f.submit "Create blog post", class: "btn btn-large btn-primary" %>

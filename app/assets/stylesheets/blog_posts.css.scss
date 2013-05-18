@@ -98,3 +98,9 @@ body {
 	background-size: 100% 150px;
 	background-repeat: no-repeat;
 }
+
+.form .larger_input input, .form .larger_input textarea {
+	//position: relative;
+	height: 250px;
+	width: 70%;
+}

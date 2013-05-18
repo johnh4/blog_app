@@ -25,5 +25,7 @@
 		</tr>
 	<% end %>
 </table>
-
+	<div class = "forum_nav_links">
+		<%= link_to 'New Forum', new_forum_path %>
+	</div>
 <p><% if admin? %><%= link_to "New Forum", new_forum_path %><% end %></p>
