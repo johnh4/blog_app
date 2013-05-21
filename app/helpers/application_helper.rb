@@ -34,4 +34,16 @@ module ApplicationHelper
 			return false
 		end
 	end
+
+	def shorten_text(text, num_char)
+		if text && num_char
+			str = String.new
+			str = text
+			shorter = str[0...num_char]
+			if text.length > num_char
+				shorter = shorter + "..."
+			end
+			return shorter
+		end
+	end
 end

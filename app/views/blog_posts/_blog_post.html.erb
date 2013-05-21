@@ -1,6 +1,6 @@
 <li>
-	<span class = "content"><%= blog_post.content %></span>
+	<span class = "content"><%= shorten_text blog_post.content,140 %></span>
 	<span class="timestamp">
-		Posted <%= time_ago_in_words(blog_post.created_at) %> ago.
+		Posted <%= time_ago_in_words(blog_post.created_at) %> ago in <strong><%= link_to blog_post.title, blog_post_comments_path(blog_post) %></strong>
 	</span>
 </li>

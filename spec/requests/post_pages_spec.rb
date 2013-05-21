@@ -10,7 +10,7 @@ describe "PostPages" do
 		@forum = Forum.create(name: "Test Forum 1")
 		@topic = @user.topics.build(title: "Test Title 1", forum_id: @forum.id)
 		@topic.save
-		#@post = @topic.posts.build(title: "Test Post 1")
+		@post = @topic.posts.build(content: "Test Post 1")
 		sign_in @user
 	end
 
@@ -60,6 +60,41 @@ describe "PostPages" do
 				end
 				it { should_not have_content("My post.") }
 			end
+		end
+	end
+
+	describe "the correct user" do
+		before do
+			@user_2 = User.create(name: "Smith", email: "smith@example.com", password: "password", 
+						 password_confirmation: "password")
+			@user_2.save
+			#@post_2 = @topic.posts.build(content: "Post two.")
+			#@post_2.user_id = @user_2.id
+			#@post_2.save
+			sign_in @user_2
+			visit forum_topic_path(@forum, @topic) 
+		end
+
+		describe "should be listed as the original poster" do
+			before do
+				visit new_forum_topic_path(@forum)
+				fill_in "post[content]", with: "My topic content."
+				click_button "Create topic"
+			end
+			it { @user_2.id.should_not be_nil }
+			it { should have_content("user id is 2") }
+		end
+
+		describe "or the reply posting poster" do
+			before do
+				sign_in @user
+				visit forum_topic_path(@forum,1)
+				click_link "Reply"
+				fill_in "Content", with: "User One reply."
+				click_button "Post"
+			end
+
+			it { should have_content("user id is 1") }
 		end
 	end
 end

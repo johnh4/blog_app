@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   	@blog_posts = @user.blog_posts.paginate(page: params[:page])
     @comments = @user.comments.paginate(page: params[:page])
     @topics = @user.topics.paginate(page: params[:page])
+    @posts = @user.posts.paginate(page: params[:page])
   end
 
   def create

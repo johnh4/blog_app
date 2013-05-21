@@ -1,3 +1,44 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.lists_rect {
+	box-shadow: 0px 0px 5px #888;
+	margin-bottom: 30px;
+	//background-size: 100% 100%;
+	//background: linear-gradient(to bottom, transparent 30%,  white 30%, #d2ebf9 40%, white);
+	//animation: back_colors 4s infinite;
+	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds1s.jpg);
+	background-size: 100% 70px;
+	background-repeat: no-repeat;
+}
+
+div.lists_rect h3 {
+	text-align: center;
+	color: #1CA2E6;
+	font-weight: normal;
+}
+
+h1.user_name {
+	color: #145596;
+	font-variant: small-caps;
+	text-align: center;
+}
+div.post_rect {
+	//box-shadow: 10px 10px 5px #888;
+	//background-color: #aaa;
+	//background: url(gradient-post2.jpg);
+	//background-size: 100% 100%;
+	//background: linear-gradient(to bottom, transparent 30%,  white 30%, #d2ebf9 40%, white);
+}
+@keyframes back_colors {
+	0% {
+		background: #D5DFF5;
+	}
+	50% {
+		background: #D5E0F7;
+	}
+	100% {
+		background: #D5DFF5;
+	}
+}

@@ -1,0 +1,13 @@
+<%= provide(:title, 'Edit Forum') %>
+
+<h2>Edit Forum</h2>
+
+<%= form_for(@forum) do |f| %>
+	
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<br>
+	<%= f.submit "Edit", class: "btn btn-large btn-primary" %>
+
+<% end %>

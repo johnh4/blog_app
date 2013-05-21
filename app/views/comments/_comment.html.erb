@@ -1,7 +1,7 @@
 <li>
-	<span class = "content"><%= comment.content %></span>
+	<span class = "content"><%= shorten_text comment.content, 140 %></span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(comment.created_at) %> ago in 
-									<strong><%= comment.blog_post.title %></strong>.
+									<strong><%= link_to comment.blog_post.title, blog_post_comments_path(comment.blog_post) %></strong>.
 	</span>
 </li>

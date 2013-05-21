@@ -1,0 +1,19 @@
+<%= provide(:title, 'Edit Blog Post') %>
+
+<h2>Edit Blog Post</h2>
+<div class="form">
+	<%= form_for([@blog_post]) do |f| %>
+
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+
+		<div class="larger_input">
+			<%= f.label :content %>
+			<%= f.text_area :content %>
+		</div>
+
+		<br>
+		<%= f.submit "Edit", class: "btn btn-large btn-primary" %>
+
+	<% end %>
+</div>

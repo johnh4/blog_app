@@ -1,5 +1,5 @@
 <li>
-	<span class = "topic"><%= link_to topic.title, [topic.forum, topic] %></span>
+	<span class = "topic"><strong><%= link_to topic.title, [topic.forum, topic] %></strong></span>
 	<span class="timestamp">
 		Posted <%= time_ago_in_words(topic.created_at) %> ago.
 	</span>

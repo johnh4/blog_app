@@ -10,7 +10,7 @@ BlogApp::Application.routes.draw do
     end
   end
 
-  root to: "static_pages#home"
+  root to: "blog_posts#index"
 
   match '/signup', to: "users#new"
 

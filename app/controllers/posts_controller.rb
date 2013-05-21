@@ -4,14 +4,18 @@ class PostsController < ApplicationController
 
 	def new
 		@topic = Topic.find(params[:topic_id])
-		@post = Post.new
+		@post = Post.new(user_id: current_user.id)
 		@forum = Forum.find(params[:forum_id])
 	end
 
 	def create
-	  @topic = Topic.find(params[:topic_id])  
+	  @topic = Topic.find(params[:topic_id])
+	  #params[:post][:user] = User.find(current_user.id)
+	  #@post = @topic.posts.build(params[:post])
 	  @post = @topic.posts.build(:content => params[:post][:content])  
-	  if @post.save  
+	  #@post.user = User.find(current_user.id)
+	  @post.user_id = current_user.id
+	  if @post.save
 	  	@topic = Topic.find(@post.topic_id)  
     	@topic.update_attributes(:last_poster_id => current_user.id, 
     							 :last_post_at => Time.now)

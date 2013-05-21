@@ -27,7 +27,7 @@ span.right {
 	font-variant: small-caps;
 }
 
-span.right a:link, a:visited {
+span.right a:link, span.right a:visited {
 	text-decoration: none;
 	color: black;
 }
@@ -49,7 +49,7 @@ h3#title {
 	background-repeat: no-repeat;
 }
 
-h3#title a, a:link, a:visited {
+h3#title a, h3#title a:link, h3#title a:visited {
 	//text-decoration: none;
 	color: #145596;
 }
@@ -112,4 +112,8 @@ body {
 	//position: relative;
 	height: 250px;
 	width: 70%;
+}
+
+.edit_delete {
+	text-align: center;
 }

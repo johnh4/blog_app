@@ -23,7 +23,7 @@ describe "BlogPostPages" do
   	before { visit blog_post_comments_path(b1) }
 
   	it { should have_content(c1.content) }	
-    it { should have_link('Profile', href: user_path(user)) }
+    it { should have_link(b1.user.name, href: user_path(user)) }
   end
 
   describe "new blog post page" do
@@ -37,7 +37,7 @@ describe "BlogPostPages" do
 
     describe "with valid info" do
       before do
-        fill_in "User",   with: 1
+        #fill_in "User",   with: 1
         fill_in "Title",  with: "Blog Post Title"
         fill_in "Content", with: "Blog Post Content."
       end
