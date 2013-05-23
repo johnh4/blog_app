@@ -53,6 +53,7 @@ h3#title {
 	background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background4.gif);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+	font-weight: normal;
 }
 
 h3#title a, h3#title a:link, h3#title a:visited {
@@ -150,6 +151,10 @@ body {
 	perspective: 1000px;
 }
 
+.bp_cont a {
+	//z-index: 2;
+}
+
 .bp_cont:hover {
 	//height:auto;
 }
@@ -162,8 +167,10 @@ body {
 }
 
 //#bp_card.face.post_rect#content
+
 #bp_container:hover #bp_card {
-	transform: rotateY(180deg);
+	//transform: rotateY(180deg);
+	//transition-delay: 0.3s;
 	box-shadow: 0px 0px 5px #888;
 }
 
@@ -182,6 +189,9 @@ body {
 	//height: auto;
 }
 
+.face.front {
+	margin-right: 52px;
+}
 .face.back {
 	position: fixed;
 	display:block;
@@ -190,13 +200,17 @@ body {
 	-moz-transform: rotateY(180deg);
 	//box-sizing: border-box;
 	//height: 100%;
-	//padding: 10px;
+	//padding-left: 10px;
 	//color: white;
 	//text-align: center;
 	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
 	background-size: 100% 150px;
 	background-repeat: no-repeat;
+	box-shadow: 0px 0px 5px #888;
 }
+
+/**********************************************/
+
 .box {
     width: 50px;
     height: 50px;
