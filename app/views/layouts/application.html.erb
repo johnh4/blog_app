@@ -3,9 +3,9 @@
 <head>
   <title>BlogApp | <%= yield (:title) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+ 
   <%= csrf_meta_tags %>
-  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+  
 </head>
 <body>
 	<%= render 'layouts/header' %>
@@ -22,12 +22,11 @@
   
 
 </body>
+<footer>
+  <%= javascript_include_tag "application" %>
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+</footer>
 <script>
-jQuery(document).ready(function($){
-    $('.toggle_active').hover(
-         function(){ $(this).addClass('active') },
-         function(){ $(this).removeClass('active') }
-    )
-});
+
 </script>
 </html>

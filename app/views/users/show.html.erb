@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 <h1 class="user_name"><%= @user.name %></h1>
 
-<div class="span8 lists_rect">
+<div class="cloud_rect lists_rect">
 	<% if @user.blog_posts.any? %>
 		<h3>Blog Posts (<%= @user.blog_posts.count %>)</h3>
 		<ol class = "blog_posts">
@@ -10,7 +10,7 @@
 		<%= will_paginate @blog_posts %>
 	<% end %>
 </div>
-<div class="span8 lists_rect">
+<div class="cloud_rect lists_rect">
 	<% if @user.comments.any? %>
 		<h3>Comments (<%= @user.comments.count %>)</h3>
 		<ol class = "comments">
@@ -19,7 +19,7 @@
 		<%= will_paginate @comments %>
 	<% end %>
 </div>
-<div class="span8 lists_rect">
+<div class="cloud_rect lists_rect">
 	<% if @user.topics.any? %>
 		<h3>Topics (<%= @user.topics.count %>)</h3>
 		<ol class = "topics">
@@ -28,7 +28,7 @@
 		<%= will_paginate @topics %>
 	<% end %>
 </div>
-<div class="span8 lists_rect">
+<div class="cloud_rect lists_rect">
 	<% if @user.posts.any? %>
 		<h3>Posts (<%= @user.posts.count %>)</h3>
 		<ol class = "posts_list">
