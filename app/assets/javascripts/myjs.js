@@ -120,6 +120,27 @@ $('.bp_card_class').toggle(function() {
 });
 **************/
 
+/********* Comment Prompt ***********
+//expand cont on mouseenter for comment prompt
+$(document).ready(function(){
+  $(".bp_cont").mouseenter(function(){
+    var $this = $(this);
+    var $inner = $this.find(".comment_prompt");
+    $this.animate({height: $inner.height()+$this.height() }, {duration:300} );
+  });
+});
+
+//shrink cont on mouseleave for comment prompt
+$(document).ready(function(){
+  $(".bp_cont").mouseleave(function(){
+    var $this = $(this);
+    var $inner = $this.find(".comment_prompt"); 
+	$this.animate({height: $this.height()-$inner.height() }, {duration:300} );	
+  });
+});
+*******************************/
+
+
 //allow links to be clicked in card despite toggle event
 $('.bp_card_class a').click(function(e){
     e.stopPropagation();
