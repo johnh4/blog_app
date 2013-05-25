@@ -24,31 +24,43 @@ describe "CommentPages" do
   describe "new comment page" do
   	before { visit new_blog_post_comment_path(b1) }
 
-  	describe "submitted with valid data" do
-		before do
-			fill_in "User",         with: 1
-			fill_in "Content",		with: "Test Comment 123"
-			click_button "Create comment"
-		end
+  	describe "when not signed in" do
+  		it { should have_content "Please sign in" }
+  		it { should_not have_button 'Create comment' }
+  	end
 
-		describe "should post a comment to the blog post's comments page" do
-			before { visit blog_post_comments_path(b1) }
-			it { should have_content("Test Comment 123") } 
-		end
+  	describe "when signed in" do
+  		before do
+  			sign_in user
+  			visit new_blog_post_comment_path(b1)
+  		end
 
-		describe "should post a comment to the user's page" do
-			before { visit user_path(user) }
-			it { should have_content("Test Comment 123") }
-		end
-
-		it "should update blog post's comment count" do
-			expect do
-				visit new_blog_post_comment_path(b1)
-				fill_in "User",         with: 1
+	  	describe "submitted with valid data" do
+			before do
+				#fill_in "User",         with: 1
 				fill_in "Content",		with: "Test Comment 123"
 				click_button "Create comment"
-			end.to change(b1.comments, :count).by(1)
-		end
-  	end
+			end
+
+			describe "should post a comment to the blog post's comments page" do
+				before { visit blog_post_comments_path(b1) }
+				it { should have_content("Test Comment 123") } 
+			end
+
+			describe "should post a comment to the user's page" do
+				before { visit user_path(user) }
+				it { should have_content("Test Comment 123") }
+			end
+
+			it "should update blog post's comment count" do
+				expect do
+					visit new_blog_post_comment_path(b1)
+					#fill_in "User",         with: 1
+					fill_in "Content",		with: "Test Comment 123"
+					click_button "Create comment"
+				end.to change(b1.comments, :count).by(1)
+			end
+	  	end
+	end
   end
 end

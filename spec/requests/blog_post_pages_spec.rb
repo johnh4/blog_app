@@ -27,22 +27,33 @@ describe "BlogPostPages" do
   end
 
   describe "new blog post page" do
-    before { visit new_blog_post_path }
+    before do
+      visit post_path
+    end    
 
-    it { should have_button('Create blog post') }
+    it { should_not have_button('Create blog post') }
 
-    it "with invalid info" do
-      expect { click_button 'Create blog post' }.to change(BlogPost, :count).by(0)
-    end
-
-    describe "with valid info" do
+    describe "when signed in" do
       before do
-        #fill_in "User",   with: 1
-        fill_in "Title",  with: "Blog Post Title"
-        fill_in "Content", with: "Blog Post Content."
+        sign_in user
+        visit post_path
       end
-      it "should create blog post" do
-        expect { click_button 'Create blog post' }.to change(BlogPost, :count).by(1)
+
+      it { should have_button('Create blog post') }
+
+      it "with invalid info" do
+        expect { click_button 'Create blog post' }.to change(BlogPost, :count).by(0)
+      end
+
+      describe "with valid info" do
+        before do
+          #fill_in "User",   with: 1
+          fill_in "Title",  with: "Blog Post Title"
+          fill_in "Content", with: "Blog Post Content."
+        end
+        it "should create blog post" do
+          expect { click_button 'Create blog post' }.to change(BlogPost, :count).by(1)
+        end
       end
     end
   end

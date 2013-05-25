@@ -1,6 +1,7 @@
 class ForumsController < ApplicationController
 
 	before_filter :admin_required, :except => [:index, :show, :new, :create]
+	before_filter :signed_in_user, except: [:index, :show]
 
 	def new
 		@forum = Forum.new

@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "AuthenticationPages" do
 
+  let!(:user) { FactoryGirl.create(:user) }
+
   subject { page }
 
   describe "Signin Page" do
@@ -24,14 +26,13 @@ describe "AuthenticationPages" do
   
   	describe "with valid information" do
   		before do
-  			fill_in "Email",    with: 'testuser@example.com'
+  			fill_in "Email",    with: "johnhowlett@example.com"
   			fill_in "Password", with: 'password'
   			click_button 'Sign In'
   		end
 
-  		specify { signed_in.should_not be_nil }
+  		#specify { signed_in?should_not be_nil }
+      it { should have_link('Sign Out') }
   	end
   end
-
-
 end

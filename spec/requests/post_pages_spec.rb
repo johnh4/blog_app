@@ -82,7 +82,7 @@ describe "PostPages" do
 				click_button "Create topic"
 			end
 			it { @user_2.id.should_not be_nil }
-			it { should have_content("user id is 2") }
+			it { should have_link(@user_2.name, href: user_path(@user_2)) }
 		end
 
 		describe "or the reply posting poster" do
@@ -94,7 +94,7 @@ describe "PostPages" do
 				click_button "Post"
 			end
 
-			it { should have_content("user id is 1") }
+			it { should have_link(@user.name, href: user_path(@user)) }
 		end
 	end
 end

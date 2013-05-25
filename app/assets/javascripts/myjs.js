@@ -1,9 +1,3 @@
-//testbox
-$('.box').each(function(){
-    var $this = $(this);
-    var $inner = $this.find(".inner");
-    $inner.height( $this.height() );
-});
 
 //navbar active highlight
 jQuery(document).ready(function($){
@@ -73,33 +67,50 @@ $(document).ready(function(){
 **********************/
 
 //toggle for just the container animation height
-$('.bp_card_class').toggle(function() {
+
+$('.bp_card_class').toggle(function() {  //first click
 	var $this = $(this);
     var $inner = $this.find(".back");
     if ($inner.height() >= $this.height() ) {  
-    	$this.animate({height: $inner.height() }, 100 ); //expand cont if back bigger
+      var diff = $inner.height() - $this.height();
+    	$this.animate( { height: "+="+diff+"px" }, 300 ); //expand cont if back bigger
 	}	
     if ($inner.height() < $this.height() ) {   
-    	$this.delay(100).animate({height: $inner.height() } );  //shrink cont if back smaller ******
+    	$this.delay(300).animate({height: $inner.height() } );  //shrink cont if back smaller ******
 	}
-}, function() {
+}, function() {   //second click
 	var $this = $(this);
     var $inner = $this.find(".front");
     if ($inner.height() < $this.height() ) {   
     	$this.delay(400).animate({height: $inner.height() } );  //shrink cont if front smaller
 	}
     if ($inner.height() >= $this.height() ) { 
-    	$this.animate({height: $inner.height() }, 100 );  //expand cont if front bigger **
+    	$this.delay(300).animate({height: $inner.height() }, 300 );  //expand cont if front bigger **
 	}
 });
 
 
 //rotate card toggle
+
 $('.bp_card_class').toggle(function() {
-	$(this).css('transform','rotateY(180deg)');
+  $(this).css('transform','rotateY(180deg)');
 }, function() {
-	$(this).css('transform','rotateY(360deg)');
+  $(this).css('transform','rotateY(360deg)');
 });
+
+//-webkit-rotate card toggle
+
+$('.bp_card_class').toggle(function() {
+  $(this).find('.front').animate( {opacity: 0 }, 450 );
+  $(this).find('.back').delay(350).animate( {opacity: 1 }, 1000 );
+  $(this).css('-webkit-transform','rotateY(180deg)');
+}, function() {
+  $(this).find('.front').animate( {opacity: 1 }, 200 );
+  //$(this).find('.front').css('visibility', 'visible');
+  $(this).css('-webkit-transform','rotateY(360deg)');
+});
+
+
 
 //combined, toggle rotate and toggle cont exp/shrink
 /***************
@@ -144,4 +155,10 @@ $(document).ready(function(){
 //allow links to be clicked in card despite toggle event
 $('.bp_card_class a').click(function(e){
     e.stopPropagation();
+});
+//testbox
+$('.box').each(function(){
+    var $this = $(this);
+    var $inner = $this.find(".inner");
+    $inner.height( $this.height() );
 });
