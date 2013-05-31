@@ -68,7 +68,8 @@ h3#title {
 	width: auto;
 	//background: url(gradient-background4.gif);
 	background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background4.gif);
-	background: -webkit-linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background4.gif);
+	//background: -webkit-linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background4.gif);
+	background: -webkit-linear-gradient(bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%), url(gradient-background4.gif);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	font-weight: normal;
@@ -131,9 +132,17 @@ div.gradient_logo {
 }
 
 body {
-	//background: url(gradient-background3.jpg);
+	background: url(gradient-background3.jpg);
 	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background3.jpg);
-	background: -webkit-linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background3.jpg);
+	//background: -webkit-linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background3.jpg);
+	//background: -webkit-linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+	//background-image: url(gradient-background3.jpg), -webkit-linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+	//background-image: url(gradient-background3.jpg), -webkit-gradient(linear, left top, left bottom, from(black), to(transparent));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%), url(gradient-background3.jpg);
+	//background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(25,25,25,0)), to(rgba(255,255,255,1)));
+	//-webkit-mask-box-image: -webkit-linear-gradient(black, transparent);
+	//-webkit-mask-size: 100% 150px;
+	//-webkit-mask-repeat: no-repeat;
 	background-size: 100% 150px;
 	background-repeat: no-repeat;
 }
@@ -172,7 +181,6 @@ body {
 #bp_container {
 	perspective: 1000px;
 	-webkit-perspective: 1000px;
-
 }
 
 .bp_cont a {
@@ -211,8 +219,8 @@ body {
 	-moz-transform-style: preserve-3d;
 	-o-transform-style: preserve-3d;
 	-webkit-transform-style: preserve-3d;
-	transition: transform 1s;
-	-webkit-transition: -webkit-transform 1.0s;
+	transition: transform 1.15s;
+	-webkit-transition: -webkit-transform 1.15s;
 	//transition: all;
 	//-webkit-transition: all 1.0s;
 }
@@ -233,6 +241,7 @@ body {
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	-o-backface-visibility: hidden;
+	//-ms-backface-visibility: hidden;
 	//margin-top: 20px;
 	//margin-bottom: 20px;
 	//display: inline-block;
@@ -257,13 +266,15 @@ body {
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);
+	//-ms-transform: rotateY(180deg);
 	//box-sizing: border-box;
 	//height: 100%;
 	//padding-left: 10px;
 	//color: white;
 	//text-align: center;
 	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
-	background: -webkit-linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
+	//background: -webkit-linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%), url(clouds2s.jpg);
 	background-size: 100% 150px;
 	background-repeat: no-repeat;
 	box-shadow: 0px 0px 5px #888;

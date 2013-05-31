@@ -1,31 +1,38 @@
 <%= provide(:title, 'Forums') %>
+<div class="table_cont">
+	<table>
+		<div class="forum_header">
+			<tr>
+				<th width="70%">Forum</th>
+				<th width="30%">Last Post</th>
+			</tr>
+		</div>
+		<% for forum in @forums %>
+			<div class="forum_entry">
+				<tr>
+					<td><h4><%= link_to h(forum.name), forum_path(forum.id) %></h4>
+						<small><%= forum.topics.count %> topics</small><br />
+						<%= h forum.description %></td>
+					<td class="right">
+						<% if forum.most_recent_post %>
+							<%= distance_of_time_in_words_to_now(forum.most_recent_post.last_post_at) %> ago by
+							<%= link_to User.find(forum.most_recent_post.last_poster_id).name, user_path(forum.most_recent_post.last_poster_id) %>
+							in <%= link_to forum.most_recent_post.title, [forum, forum.most_recent_post] %>
+						<% else %>
+							No Posts
+						<% end %>
+					</td>
+					<% if admin? %>
+						<td><%= link_to "Edit", edit_forum_path(forum) %></td>
+						<td><%= link_to "Destroy", forum, confirm: 'Are you sure?', method: :delete %>
+					<% end %>
+				</tr>
+			</div>
+		<% end %>
+	</table>
+</div>
+		<div class = "forum_nav_links">
+			<%= link_to 'New Forum', new_forum_path %>
+		</div>
 
-<table>
-	<tr>
-		<th width="70%">Forum</th>
-		<th width="30%">Last Post</th>
-	</tr>
-	<% for forum in @forums %>
-		<tr>
-			<td><h4><%= link_to h(forum.name), forum_path(forum.id) %></h4>
-				<small><%= forum.topics.count %> topics</small><br />
-				<%= h forum.description %></td>
-			<td class="right">
-				<% if forum.most_recent_post %>
-					<%= distance_of_time_in_words_to_now(forum.most_recent_post.last_post_at) %> ago by
-					<%= link_to User.find(forum.most_recent_post.last_poster_id).name, user_path(forum.most_recent_post.last_poster_id) %>
-				<% else %>
-					No Posts
-				<% end %>
-			</td>
-			<% if admin? %>
-				<td><%= link_to "Edit", edit_forum_path(forum) %></td>
-				<td><%= link_to "Destroy", forum, confirm: 'Are you sure?', method: :delete %>
-			<% end %>
-		</tr>
-	<% end %>
-</table>
-	<div class = "forum_nav_links">
-		<%= link_to 'New Forum', new_forum_path %>
-	</div>
 <p><% if admin? %><%= link_to "New Forum", new_forum_path %><% end %></p>
