@@ -12,10 +12,11 @@ describe "Static pages" do
                                     content: "Second Post", title: "Second Title") }
 
     before { visit root_path }
-    it "should have the content 'Blog App'" do
+    it "should have the content 'BlogApp'" do
       
-      should have_content('Blog App')
+      should have_content('BlogApp')
     end
+  end
     
   describe "About page" do
   	it "should have the content 'About" do

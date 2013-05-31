@@ -1,11 +1,13 @@
 <% provide(:title, 'Blog Posts Index') %>
 <div class="gradient_logo">
-	<h1><span class="logo_1">Blog</span><span class="logo_2">App</span></h1> 
-</div>
-<div class="box">
-    <div class= "inner">
-    </div>
-</div>
+	<h1><span class="logo_1">Blog</span><span class="logo_2">App</span></h1>
+<% if Rails.env.development? %>
+	</div>
+	<div class="box">
+	    <div class= "inner">
+	    </div>
+	</div>
+<% end %>
 <% i = 0 %>
 <% @all_blog_posts.each do |blog_post| %>
 	<% i+=1 %>
@@ -55,7 +57,10 @@
 					<%= image_tag("mario2.gif", alt: "mario", class: "mario") %>
 					<h3 id="title"><%= link_to blog_post.title,blog_post_comments_path(blog_post) %></h3>
 				</div>
-				
+				<div class="comment_prompt">
+					<p>Click Anywhere on Card to See the Lastest Comments
+					</p>
+				</div>
 				<span class= "left">
 					<p>By <%= link_to h(blog_post.user.name), user_path(blog_post.user) %><br>
 					Posted on <%= blog_post.created_at.to_date.strftime("%B %d, %Y") %></p>
@@ -66,10 +71,6 @@
 						<%= link_to 'Make One', new_blog_post_comment_path(blog_post) %>
 					</p>
 				</span>
-				<div class="comment_prompt">
-					<p>Click Anywhere on Card to See the Lastest Comments
-					</p>
-				</div>
 				<div id="content">
 					<br><br><br>
 					<div class="content_rect_off">

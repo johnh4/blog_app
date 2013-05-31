@@ -102,7 +102,7 @@ $('.bp_card_class').toggle(function() {
 
 $('.bp_card_class').toggle(function() {
   $(this).find('.front').animate( {opacity: 0 }, 450 );
-  $(this).find('.back').delay(350).animate( {opacity: 1 }, 1000 );
+  $(this).find('.back').delay(500).animate( {opacity: 1 }, 1000 );
   $(this).css('-webkit-transform','rotateY(180deg)');
 }, function() {
   $(this).find('.front').animate( {opacity: 1 }, 200 );

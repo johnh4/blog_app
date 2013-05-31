@@ -42,6 +42,10 @@ span.right a:hover, span.left a:hover{
 	color: #1CA2E6;
 }
 
+.face .front span.right a, .face .front span.left a {
+	z-index: 5;
+}
+
 .back span.comments_right {
 	float: right;
 	margin-bottom: 60px;
@@ -64,6 +68,7 @@ h3#title {
 	width: auto;
 	//background: url(gradient-background4.gif);
 	background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background4.gif);
+	-webkit-background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background4.gif);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	font-weight: normal;
@@ -110,7 +115,7 @@ div.content_rect {
 }
 
 div.cloud_rect.post_rect {
-	background-size: 100% 150px;
+	background-size: 100% 175px;
 }
 
 div.post_rect {
@@ -128,6 +133,7 @@ div.gradient_logo {
 body {
 	//background: url(gradient-background3.jpg);
 	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background3.jpg);
+	-webkit-background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background3.jpg);
 	background-size: 100% 150px;
 	background-repeat: no-repeat;
 }
@@ -192,7 +198,9 @@ body {
 }
 .comment_prompt {
 	margin-top: 0px;
-	//text-align: center;
+	display: block;
+	text-align: center;
+	left: 80%;
 
 	//display: inline;
 }
@@ -255,6 +263,7 @@ body {
 	//color: white;
 	//text-align: center;
 	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
+	-webkit-background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
 	background-size: 100% 150px;
 	background-repeat: no-repeat;
 	box-shadow: 0px 0px 5px #888;

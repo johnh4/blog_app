@@ -9,6 +9,7 @@ div.cloud_rect {
 	//background: linear-gradient(to bottom, transparent 30%,  white 30%, #d2ebf9 40%, white);
 	//animation: back_colors 4s infinite;
 	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds1s.jpg);
+	-webkit-background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds1s.jpg);
 	background-size: 100% 70px;
 	background-repeat: no-repeat;
 	padding: 0px 5px;
@@ -16,6 +17,7 @@ div.cloud_rect {
 
 div.cloud_rect.lists_rect {
 	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
+	-webkit-background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
 	background-size: 100% 100px;
 	background-repeat: no-repeat;
 	padding: 0px;	

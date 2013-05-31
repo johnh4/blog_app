@@ -2,8 +2,6 @@ require 'spec_helper'
 
 describe "PostPages" do
 
-
-
 	before do
 		@user = User.create(name: "John Doe", email: "jdoe@example.com", password: "password", 
 						 password_confirmation: "password")
