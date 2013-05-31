@@ -68,7 +68,7 @@ h3#title {
 	width: auto;
 	//background: url(gradient-background4.gif);
 	background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background4.gif);
-	-webkit-background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background4.gif);
+	background: -webkit-linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background4.gif);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	font-weight: normal;
@@ -133,7 +133,7 @@ div.gradient_logo {
 body {
 	//background: url(gradient-background3.jpg);
 	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background3.jpg);
-	-webkit-background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background3.jpg);
+	background: -webkit-linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(gradient-background3.jpg);
 	background-size: 100% 150px;
 	background-repeat: no-repeat;
 }
@@ -263,7 +263,7 @@ body {
 	//color: white;
 	//text-align: center;
 	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
-	-webkit-background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
+	background: -webkit-linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), url(clouds2s.jpg);
 	background-size: 100% 150px;
 	background-repeat: no-repeat;
 	box-shadow: 0px 0px 5px #888;
