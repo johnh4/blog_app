@@ -2,7 +2,7 @@ class Forum < ActiveRecord::Base
   attr_accessible :description, :name
   has_many :topics, dependent: :destroy
 
-
+  default_scope order: 'forums.name'
   def most_recent_post
 		topic = Topic.first(order: 'last_post_at DESC', conditions: ['forum_id = ?', self.id])
 		return topic

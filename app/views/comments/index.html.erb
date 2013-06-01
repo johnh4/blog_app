@@ -59,25 +59,27 @@
 		<% end %>
 	<% end %>
 </div>
-<h3><span class="logo_1"><%= @blog_post.comments.count %> Comments:</span></h3>
-<% @blog_post.comments.each do |comment| %>
-	<div class="comment_user">
-		<p><%= link_to comment.user.name, user_path(comment.user) %> says:</p> 
-	</div>
-	<div class="comment_rect">
-		<p><%= comment.content %></p>
-		<p class="date_tag">Posted on <%= comment.created_at.to_date.strftime("%B %d, %Y") %>.</p>
-	</div>
-	<div class="edit_delete">
-	<% if signed_in? %>
-		<% if admin_or_owner?(comment.user.id) %>
-			<%= link_to "Edit Comment", edit_blog_post_comment_path(@blog_post, comment) %> |
-			<%= link_to "Delete Comment", [@blog_post, comment], confirm: 'Are you sure?', method: :delete %>
-		<% end %>
-	<% end %>
-</div>
+<div class="comments_cont">
+	<h3><span class="logo_1"><%= @blog_post.comments.count %> Comments:</span></h3>
+	<% @blog_post.comments.each do |comment| %>
+		<div class="comment_user">
+			<p><%= link_to comment.user.name, user_path(comment.user) %> says:</p> 
+		</div>
+		<div class="comment_rect">
+			<p><%= comment.content %></p>
+			<p class="date_tag">Posted on <%= comment.created_at.to_date.strftime("%B %d, %Y") %>.</p>
+		</div>
+		<div class="edit_delete">
+			<% if signed_in? %>
+				<% if admin_or_owner?(comment.user.id) %>
+					<%= link_to "Edit Comment", edit_blog_post_comment_path(@blog_post, comment) %> |
+					<%= link_to "Delete Comment", [@blog_post, comment], confirm: 'Are you sure?', method: :delete %>
+				<% end %>
+			<% end %>
+		</div>
 	<section>
 	</section>
-<% end %>
+	<% end %>
+</div>
 <%= link_to 'Make A Comment', new_blog_post_comment_path(@blog_post) %> |
 <%= link_to 'Back to Blog Posts', blog_posts_path %>
