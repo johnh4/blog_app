@@ -37,7 +37,19 @@ $grayMediumLight: #eaeaea;
 }
 
 .navbar-inner, .navbar-inner container, .navbar, #nav-main {
+    z-index: 100000;
     opacity: 0.9; /* opacity [0-1] */
     -moz-opacity: 0.9; /* opacity [0-1] */
     -webkit-opacity: 0.9; /* opacity [0-1] */
+}
+
+.navbar {
+    z-index: 100000;
+    margin-bottom: 70px;
+}
+.navbar .nav > li {
+    z-index: 100000;
+}
+li ul.dropdown-menu li {
+    z-index: 100000;
 }
